@@ -1,4 +1,4 @@
-import type { IndexHtmlTransformContext, Plugin } from "vite";
+import type { Plugin, ResolvedConfig } from "vite";
 import FastGlob from "fast-glob";
 
 interface IPrefetchImagesOptions {
@@ -21,15 +21,24 @@ export const vitePluginPrefetchImages = (options: IPrefetchImagesOptions): Plugi
     throw new Error("Directory not found.");
   }
 
+  let base = "";
+  let publicDir = "";
+
+  const PUBLIC_DIR = "public";
+  const BASE = "/";
+
   return {
     name: "vite-plugin-image-prefetch",
-    apply: "build",
-    transformIndexHtml(_: string, ctx: IndexHtmlTransformContext) {
+    configResolved(resolvedConfig: ResolvedConfig) {
+      base = resolvedConfig.base;
+      publicDir = resolvedConfig.publicDir;
+    },
+    transformIndexHtml() {
       const files = FastGlob.sync(dir, {
-        cwd: ctx.server?.config.publicDir
+        cwd: publicDir ?? PUBLIC_DIR
       });
 
-      const images = files.map(file => ctx.server?.config.base ?? "/" + file);
+      const images = files.map(file => (base ?? BASE) + file);
 
       return images.map(href => {
         return {
