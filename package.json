@@ -1,0 +1,69 @@
+{
+  "name": "vite-plugin-image-prefetch",
+  "description": "A simple plugin of vite for prefetch images.",
+  "private": false,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SWSJTX/vite-plugin-image-prefetch.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/SWSJTX/vite-plugin-image-prefetch/issues"
+  },
+  "keywords": [
+    "image-prefetch",
+    "vite-plugin-image-prefetch"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.umd.cjs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "rimraf dist && tsc && vite build",
+    "lint": "eslint --cache --max-warnings 0 lib/**/*.{js,ts} --fix",
+    "format": "prettier --write lib",
+    "release": "standard-version",
+    "prepare": "husky",
+    "cz": "czg"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/types": "^19.5.0",
+    "@eslint/js": "^9.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
+    "czg": "^1.11.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.1",
+    "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.1",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.2"
+  }
+}
