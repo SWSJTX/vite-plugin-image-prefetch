@@ -2,7 +2,7 @@
   "name": "vite-plugin-image-prefetch",
   "description": "A simple plugin of vite for prefetch images.",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "license": "MIT",
   "files": [
