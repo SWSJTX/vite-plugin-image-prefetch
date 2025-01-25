@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: "./lib/main.ts",
+      entry: "./lib/index.ts",
       name: "vite-plugin-image-prefetch",
       fileName: "index"
     },
